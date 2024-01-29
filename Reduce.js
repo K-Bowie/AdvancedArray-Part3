@@ -34,13 +34,20 @@ vowelCount('I Am awesome and so are you'));
 
 const array = [{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}];
 
-function addKeyAndValue(arr, key, value){
-    return arr.reduce(function(accumulator, currentObj){
-        currentObj[key] = value;
+function addKeyAndValueToFront(arr, key, value) {
+    return arr.reduce(function(accumulator, currentObj) {
+        currentObj = { [key]: value, ...currentObj }; // Add new key-value pair at the front
         accumulator.push(currentObj);
         return accumulator;
     }, []);
 }
+// function addKeyAndValue(arr, key, value){
+//     return arr.reduce(function(accumulator, currentObj){
+//         currentObj[key] = value;
+//         accumulator.push(currentObj);
+//         return accumulator;
+//     }, []);
+// }
 
 console.log(addKeyAndValue(arr, 'title', 'Instructor')); 
 
